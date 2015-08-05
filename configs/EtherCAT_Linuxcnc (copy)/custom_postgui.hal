@@ -1,0 +1,2 @@
+# Includi qui i tuoi comandi HAL personalizzati
+# I comandi di questo file saranno eseguiti dopo l'avvio della GUI AXIS (incluso il panello PyVCP)

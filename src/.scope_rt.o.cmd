@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/scope_rt.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/scope_rt.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/hal/utils/scope_rt.o 

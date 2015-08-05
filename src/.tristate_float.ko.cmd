@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/tristate_float.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-2.6.32-122-rtai/scripts/module-common.lds --build-id -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/tristate_float.ko /home/yutingkao23/linuxcnc-add-hal-ethercat/src/tristate_float.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/tristate_float.mod.o

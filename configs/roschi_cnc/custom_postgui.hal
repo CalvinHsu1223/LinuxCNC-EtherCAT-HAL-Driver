@@ -1,0 +1,38 @@
+# Torque Display
+net Xachse_torque pyvcp.xtorque_bar
+net Yachse_torque pyvcp.ytorque_bar
+net Zachse_torque pyvcp.ztorque_bar
+net Aachse_torque pyvcp.atorque_bar
+
+# Analog Input Level Display
+net AI_X pyvcp.ai_x_bar
+net AI_Y pyvcp.ai_y_bar
+#net AI_Z pyvcp.ai_z_bar
+
+net break_open pyvcp.break_z_axis => lcec.0.2.dout-0
+
+# E-Chain PLC
+net ec_up lcec.state-op => classicladder.0.in-00 => lcec.0.6.drivecontrol-0
+net ext_estop lcec.0.1.din-1 => classicladder.0.in-01
+net emc-estop iocontrol.0.user-enable-out => classicladder.0.in-02
+net estop_out classicladder.0.out-00 => iocontrol.0.emc-enable-in
+
+
+# Homing opmode switch for ESTUN Drive
+net in1 axis.3.homing => classicladder.0.in-03
+net in2 lcec.0.6.opmode_fb-1 => classicladder.0.in-04
+net in3 lcec.0.6.opmode_fb-2 => classicladder.0.in-05
+net in4 lcec.0.6.opmode_fb-3 => classicladder.0.in-06
+net in5 lcec.0.6.drivestatus-10 => classicladder.0.in-07
+net in6 lcec.0.6.drivestatus-3 => classicladder.0.in-10
+net in7 lcec.0.6.digital_inputs-0 => classicladder.0.in-08
+net in8 lcec.0.6.digital_inputs-1 => classicladder.0.in-09
+net out1 classicladder.0.out-01 => lcec.0.6.opmode-1
+net out2 classicladder.0.out-02 => lcec.0.6.opmode-2
+net out3 classicladder.0.out-03 => lcec.0.6.opmode-3
+net out4 classicladder.0.out-04 => lcec.0.6.drivecontrol-4
+net out5 classicladder.0.out-05 => axis.3.home-sw-in
+net out6 classicladder.0.out-06 => axis.3.amp-fault-in
+
+
+

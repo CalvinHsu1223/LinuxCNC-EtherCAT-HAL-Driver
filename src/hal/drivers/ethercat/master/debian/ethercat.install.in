@@ -1,0 +1,7 @@
+lib/modules/2.6.32-122-rtai/ethercat
+etc/default/*
+etc/udev/rules.d/*
+usr/bin/*
+usr/sbin/*
+usr/lib/*.so*
+

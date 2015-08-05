@@ -1,0 +1,47 @@
+loadusr -W lcec_conf /home/yutingkao23/A5-slave-only.xml
+loadrt lcec
+
+loadrt trivkins
+loadrt [EMCMOT]EMCMOT base_period_nsec=[EMCMOT]BASE_PERIOD servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[TRAJ]AXES
+loadrt scale
+loadrt conv_s32_float
+loadrt conv_float_s32
+loadusr -Wn gui pyvcp -c gui /home/yutingkao23/linuxcnc/configs/EtherCAT_Linuxcnc/gui.xml
+
+
+addf lcec.read-all servo-thread
+addf conv-s32-float.0 servo-thread
+addf motion-command-handler servo-thread
+addf motion-controller servo-thread
+addf conv-float-s32.0 servo-thread
+addf lcec.write-all servo-thread
+
+setp lcec.0.0.drivecontrol-1 1
+setp lcec.0.0.drivecontrol-2 1
+setp lcec.0.1.drivecontrol-1 1
+setp lcec.0.1.drivecontrol-2 1
+
+net estop-loop iocontrol.0.user-enable-out iocontrol.0.emc-enable-in
+net Xachse_AF axis.0.amp-enable-out => lcec.0.0.drivecontrol-3
+net Xachse_AF axis.1.amp-enable-out => lcec.0.0.drivecontrol-3
+
+net ready_to_switch gui.ready => lcec.0.0.drivecontrol-0
+net ready_to_switch gui.readyled <= lcec.0.0.drivecontrol-0
+#net switch_on gui.switch => lcec.0.0.drivecontrol-3
+#net switch_on gui.switchled <= lcec.0.0.drivecontrol-3
+net oper_enable gui.op => lcec.0.0.drivecontrol-4
+net oper_enable gui.opled <= lcec.0.0.drivecontrol-4
+
+
+
+net csf_in conv-s32-float.0.in <= lcec.0.0.Actual_Pos
+net csf_out conv-s32-float.0.out => axis.0.motor-pos-fb
+
+net cfs_in conv-float-s32.0.in <= axis.0.motor-pos-cmd 
+net cfs_out conv-float-s32.0.out => lcec.0.0.targetpos
+
+
+
+
+
+

@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/charge_pump.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/charge_pump.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/objects/hal/components/charge_pump.o 

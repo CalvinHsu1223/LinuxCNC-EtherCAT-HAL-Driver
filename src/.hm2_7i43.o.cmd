@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/hm2_7i43.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/hm2_7i43.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/hal/drivers/mesa-hostmot2/hm2_7i43.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/hal/drivers/mesa-hostmot2/bitfile.o 

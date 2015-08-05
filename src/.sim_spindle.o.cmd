@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/sim_spindle.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/sim_spindle.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/objects/hal/components/sim_spindle.o 

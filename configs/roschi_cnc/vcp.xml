@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pyvcp>
+
+<label><text>"X Torque"</text></label>
+<bar><halpin>"xtorque_bar"</halpin><min_>-200</min_><max_>200</max_></bar>
+<label><text>"Y Torque"</text></label>
+<bar><halpin>"ytorque_bar"</halpin><min_>-200</min_><max_>200</max_></bar>
+<label><text>"Z Torque"</text></label>
+<bar><halpin>"ztorque_bar"</halpin><min_>-200</min_><max_>200</max_></bar>
+<label><text>"A Torque"</text></label>
+<bar><halpin>"atorque_bar"</halpin><min_>-200</min_><max_>200</max_></bar>
+
+
+<label><text>"Extern Override"</text></label>
+<bar><halpin>"ai_x_bar"</halpin><min_>0</min_><max_>1</max_></bar>
+<label><text>"Spindel Drehzahl"</text></label>
+<bar><halpin>"ai_y_bar"</halpin><min_>0</min_><max_>1</max_></bar>
+
+<checkbutton><halpin>"break_z_axis"</halpin><text>"Bremse öffnen"</text></checkbutton>
+
+
+</pyvcp>

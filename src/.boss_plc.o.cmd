@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/boss_plc.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/boss_plc.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/hal/components/boss_plc.o 

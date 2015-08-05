@@ -1,0 +1,19 @@
+; loadtool:  issue Tn M6 G43 if and only if necessary
+;            this precludes unneeded moves to tool change position
+
+o<loadtool> sub
+(not_a_subfile)
+#<toolno> = #1
+
+o<l0>      if [#<toolno> EQ 0]
+             (print, loadtool: EXIT: toolno required not 0)
+             (debug, loadtool: EXIT: toolno required not 0)
+             (AXIS,notify, loadtool: EXIT: toolno required not 0)
+             m2 (quit)
+o<l0>      endif
+
+o<l1>      if [#5400 NE #<toolno>]
+             T#<toolno> M6 G43
+o<l1>      endif
+
+o<loadtool> endsub

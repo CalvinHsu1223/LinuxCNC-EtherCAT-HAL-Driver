@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/genserkins.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/genserkins.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/libnml/posemath/sincos.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/emc/kinematics/genserkins.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/libnml/posemath/gomath.o 

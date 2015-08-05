@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=
+Type=Application
+Exec=/home/yutingkao23/linuxcnc-add-hal-ethercat/scripts/latencyplot
+Icon=/home/yutingkao23/linuxcnc-add-hal-ethercat/linuxcncicon.png
+X-GNOME-DocPath=
+Terminal=false
+Name=Latency Test Stripchart (run-in-place)
+Comment=Plot your machine's latency
+StartupNotify=false
+Categories=X-CNC;

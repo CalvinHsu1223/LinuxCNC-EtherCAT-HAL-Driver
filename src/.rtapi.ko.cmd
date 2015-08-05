@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/rtapi.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-2.6.32-122-rtai/scripts/module-common.lds --build-id -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/rtapi.ko /home/yutingkao23/linuxcnc-add-hal-ethercat/src/rtapi.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/rtapi.mod.o

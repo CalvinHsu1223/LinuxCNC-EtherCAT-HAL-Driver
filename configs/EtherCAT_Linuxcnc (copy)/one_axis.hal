@@ -1,0 +1,137 @@
+# Generato da stepconf a Fri Oct 11 15:51:08 2013
+# Se questo file viene modificato, questo sarà
+# sovrascritto quando si userà ancora stepconf
+
+# Kinematics
+loadrt trivkins
+
+# motion controller, get name and thread periods from ini file
+loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[TRAJ]AXES
+
+# PID module, for four PID loops
+loadrt pid num_chan=8
+
+# Install ethercat driver.
+loadrt ethercat
+
+# Install PLC.
+loadrt classicladder_rt numPhysInputs=16 numPhysOutputs=16 numS32in=10 numS32out=10 numFloatIn=10 numFloatOut=10
+
+# Spindle management.
+loadrt scale count=1
+loadrt limit2 names=spindle-ramp
+loadrt near names=spindle-at-speed
+
+# Add functions to servo thread so they will be evaluated
+# every servo period.
+#
+# Inputs are read at the beginning of the thread
+
+# Do processing.
+addf classicladder.0.refresh servo-thread -1
+
+addf motion-command-handler servo-thread -1
+addf motion-controller servo-thread -1
+
+addf scale.0 servo-thread
+addf spindle-ramp servo-thread
+addf spindle-at-speed servo-thread
+setp scale.0.gain 0.002
+setp spindle-ramp.maxv 600
+
+addf pid.0.do-pid-calcs servo-thread -1
+
+# Outputs are updated at the end of the thread
+addf ethercat.0.update servo-thread -1
+
+# PID loops.
+#
+# Get maximum (and minimum) output volts from ini file.
+setp pid.0.maxoutput [AXIS_0]MAX_OUTPUT
+
+# Set PID loop gains.
+setp pid.0.Pgain [AXIS_0]P
+setp pid.0.Igain [AXIS_0]I
+setp pid.0.Dgain [AXIS_0]D
+setp pid.0.bias [AXIS_0]BIAS
+setp pid.0.FF0 [AXIS_0]FF0
+setp pid.0.FF1 [AXIS_0]FF1
+setp pid.0.FF2 [AXIS_0]FF2
+# deadband should be just over 1 count
+setp pid.0.deadband [AXIS_0]DEADBAND
+
+# Connect the enable signals to the PID blocks.
+net xEnable axis.0.amp-enable-out => pid.0.enable
+
+# Connect position commands to PID inputs.
+net xPosCmd axis.0.motor-pos-cmd => pid.0.command
+
+# DACs
+#
+# Set DAC output scaling from ini file.
+setp ethercat.0.dac-00-scale [AXIS_0]OUTPUT_SCALE
+
+# Connect PID output signals to DACs.
+net xOutput pid.0.output => ethercat.0.dac-00-value
+
+# Encoders.
+#
+# Set feedback scaling from ini file.
+setp ethercat.0.enc-00-scale [AXIS_0]INPUT_SCALE 
+
+# Connect position feedback to PID loop.
+net xPosFb ethercat.0.enc-00-position => pid.0.feedback
+
+# Connect position feedback to motion module.
+net xPosFb => axis.0.motor-pos-fb
+
+# Connect index pulses to motion controller.
+net xIndex ethercat.0.enc-00-index-enable <=> axis.0.index-enable
+
+# Connect home switch inputs to motion controller.
+net xHome ethercat.0.HOME-0 => axis.0.home-sw-in
+
+# Connect amp enables to I/O.
+net xEnable => ethercat.0.ENABLE-24V-0
+
+# Connect amp ready to motion controller.
+# net xReady ethercat.0.DROK-0 => axis.0.amp-ready-in
+# net yReady ethercat.0.DROK-1 => axis.1.amp-ready-in
+# net zReady ethercat.0.DROK-2 => axis.2.amp-ready-in
+# net aReady ethercat.0.DROK-3 => axis.3.amp-ready-in
+# net bReady ethercat.0.DROK-4 => axis.4.amp-ready-in
+
+# Spindle.
+# hijack the spindle speed out and send it to spindle ramp in
+net spindle-cmd <= motion.spindle-speed-out => spindle-ramp.in
+# the output of spindle ramp is sent to the scale in
+net spindle-ramped <= spindle-ramp.out => scale.0.in
+# to know when to start the motion we send the near component
+# (named spindle-at-speed) to the spindle commanded speed from
+# the signal spindle-cmd and the actual spindle speed
+# provided your spindle can accelerate at the maxv setting.
+net spindle-cmd => spindle-at-speed.in1
+net spindle-ramped => spindle-at-speed.in2
+# the output from spindle-at-speed is sent to motion.spindle-at-speed
+# and when this is true motion will start
+net spindle-ready <= spindle-at-speed.out => motion.spindle-at-speed
+
+net spindle-fwd motion.spindle-forward => ethercat.0.inverter-forward
+net spindle-rev motion.spindle-reverse => ethercat.0.inverter-reverse
+net spindle-on motion.spindle-on => ethercat.0.ENABLE-24V-INVERTER
+net spindle-speed-DAC scale.0.out => ethercat.0.dac-inverter-value
+
+# PLC I/O
+net ext-input0 classicladder.0.in-00 <= ethercat.0.IN-0
+net ext-input1 classicladder.0.in-01 <= ethercat.0.IN-1
+net ext-input2 classicladder.0.in-02 <= ethercat.0.IN-2
+net ext-input3 classicladder.0.in-03 <= ethercat.0.IN-3
+
+net ext-output0 classicladder.0.out-00 => ethercat.0.OUT-0
+#net ext-output1 classicladder.0.out-01 => ethercat.0.OUT-1
+
+net estop-out <= iocontrol.0.user-enable-out
+net estop-out => iocontrol.0.emc-enable-in
+
+# Carica Classicladder senza GUI (puoi ricaricare LADDER GUI in AXIS GUI
+loadusr classicladder --nogui custom.clp

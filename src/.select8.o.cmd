@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/select8.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/select8.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/objects/hal/components/select8.o 

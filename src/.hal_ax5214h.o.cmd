@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/hal_ax5214h.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/hal_ax5214h.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/hal/drivers/hal_ax5214h.o 

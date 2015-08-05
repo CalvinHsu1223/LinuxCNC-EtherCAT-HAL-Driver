@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/toggle2nist.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/toggle2nist.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/objects/hal/components/toggle2nist.o 

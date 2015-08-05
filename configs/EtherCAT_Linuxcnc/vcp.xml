@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pyvcp>
+
+<label><text>"X Torque"</text></label>
+<bar><halpin>"xtorque_bar"</halpin><min_>-200</min_><max_>200</max_></bar>
+
+
+</pyvcp>

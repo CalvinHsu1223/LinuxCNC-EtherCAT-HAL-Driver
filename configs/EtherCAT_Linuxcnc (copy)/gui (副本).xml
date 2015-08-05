@@ -1,0 +1,71 @@
+<pyvcp>
+<labelframe text="State">
+<hbox>
+    <relief>RIDGE</relief>
+    <bd>2</bd>
+    <label>
+      <text>"Ready to switch on"</text>
+      <font>("Helvetica",14)</font>
+    </label>
+    <led>
+      <halpin>"readyled"</halpin>
+      <size>25</size>
+      <on_color>"green"</on_color>
+      <off_color>"red"</off_color>
+    </led>
+  </hbox>
+
+<hbox>
+    <relief>RIDGE</relief>
+    <bd>2</bd>
+    <label>
+      <text>"Switch on"</text>
+      <font>("Helvetica",14)</font>
+    </label>
+    <led>
+      <halpin>"switchled"</halpin>
+      <size>25</size>
+      <on_color>"green"</on_color>
+      <off_color>"red"</off_color>
+    </led>
+  </hbox>
+
+<hbox>
+    <relief>RIDGE</relief>
+    <bd>2</bd>
+    <label>
+      <text>"Operation Enabled"</text>
+      <font>("Helvetica",14)</font>
+    </label>
+    <led>
+      <halpin>"opled"</halpin>
+      <size>25</size>
+      <on_color>"green"</on_color>
+      <off_color>"red"</off_color>
+    </led>
+  </hbox>
+</labelframe>
+
+<labelframe text="control word">
+<hbox>
+    <relief>RIDGE</relief>
+    <bd>2</bd>
+	<checkbutton>
+    		<halpin>"ready"</halpin>
+    		<text>"Ready to switch"</text>
+    		<initval>0</initval>
+	</checkbutton>
+</hbox>
+
+<hbox>
+    <relief>RIDGE</relief>
+    <bd>2</bd>
+	<checkbutton>
+    		<halpin>"op"</halpin>
+    		<text>"operation enable"</text>
+    		<initval>0</initval>
+	</checkbutton>
+</hbox>
+</labelframe>
+
+</pyvcp>

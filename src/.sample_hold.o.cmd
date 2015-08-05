@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/sample_hold.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/sample_hold.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/objects/hal/components/sample_hold.o 

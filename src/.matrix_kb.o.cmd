@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/matrix_kb.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/matrix_kb.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/hal/components/matrix_kb.o 

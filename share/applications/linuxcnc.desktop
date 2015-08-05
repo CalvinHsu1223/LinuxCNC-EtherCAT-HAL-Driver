@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=
+Type=Application
+Exec=/home/yutingkao23/linuxcnc-add-hal-ethercat/scripts/emc
+Icon=/home/yutingkao23/linuxcnc-add-hal-ethercat/linuxcncicon.png
+X-GNOME-DocPath=
+Terminal=false
+Name=EMC2 (run-in-place)
+Comment=The Enhanced Machine Controller
+StartupNotify=false
+Categories=X-CNC;

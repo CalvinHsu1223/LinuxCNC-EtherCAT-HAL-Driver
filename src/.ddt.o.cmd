@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/ddt.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/ddt.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/objects/hal/components/ddt.o 

@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/tristate_bit.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/tristate_bit.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/objects/hal/components/tristate_bit.o 

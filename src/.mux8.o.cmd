@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/mux8.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/mux8.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/objects/hal/components/mux8.o 

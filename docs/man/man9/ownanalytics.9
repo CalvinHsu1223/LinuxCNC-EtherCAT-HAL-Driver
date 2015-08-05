@@ -1,0 +1,31 @@
+.TH OWNANALYTICS "9" "2015-07-08" "LinuxCNC Documentation" "HAL Component"
+.de TQ
+.br
+.ns
+.TP \\$1
+..
+
+.SH NAME
+
+ownanalytics \- ownanalytics
+.SH SYNOPSIS
+.HP
+.B loadrt ownanalytics [count=\fIN\fB|names=\fIname1\fB[,\fIname2...\fB]]
+.SH FUNCTIONS
+.TP
+\fBownanalytics.\fIN\fB\fR (requires a floating-point thread)
+
+.SH PINS
+.TP
+.B ownanalytics.\fIN\fB.in\fR float in \fR
+.TQ
+.B ownanalytics.\fIN\fB.beat\fR bit in \fR
+.TQ
+.B ownanalytics.\fIN\fB.max\fR float out \fR
+.TQ
+.B ownanalytics.\fIN\fB.min\fR float out \fR
+.TQ
+.B ownanalytics.\fIN\fB.avg\fR float out \fR
+.SH LICENSE
+
+GPL

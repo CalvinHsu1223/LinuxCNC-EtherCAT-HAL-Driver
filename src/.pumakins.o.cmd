@@ -1,0 +1,1 @@
+cmd_/home/yutingkao23/linuxcnc-add-hal-ethercat/src/pumakins.o := ld -m elf_i386   -r -o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/pumakins.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/libnml/posemath/_posemath.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/libnml/posemath/sincos.o /home/yutingkao23/linuxcnc-add-hal-ethercat/src/emc/kinematics/pumakins.o 
